@@ -95,8 +95,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(arr, value) {
+      arr[arr.length] = value
+      return arr
     }
 
     // 👉 CHALLENGE 7
@@ -111,8 +112,17 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(string) {
+     let result = []
+     let noXString = string.split("")
+    // console.log(noXString)
+     for (let index in noXString) {
+       let character = noXString[index]
+         if (character !== "x") {
+            result[result.length] = character
+        }
+      }
+      return result.join("")
     }
 
     // 👉 CHALLENGE 8
@@ -124,8 +134,16 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(string, char) {
+      let result = []
+      let deductedString = string.split("")
+      for (let i in deductedString){
+        let character = deductedString[i]
+        if (character !== char) {
+          result[result.length] = character
+        }
+      }
+      return result.join('')
     }
 
     // 👉 CHALLENGE 9
@@ -137,8 +155,14 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      let result = []
+      for (let key in obj) {
+        if (key !== "age" && key !== "married" ) {
+          result[result.length]= key
+        }
+      }
+      return result
     }
 
     // 🧪 TESTS, do not work below this line
